@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect, useCallback, useMemo } from "react";
 import { motion } from "framer-motion";
-import { Upload, Sparkles, Camera, Loader2, Moon, Sun, Palette } from "lucide-react";
+import { Upload, Sparkles, Camera, Loader2, Moon, Sun, Armchair } from "lucide-react";
 import { Button } from "./components/ui/button";
 import { useToast } from "./hooks/use-toast";
 import { TemplateCard } from "./components/TemplateCard";
@@ -361,9 +361,25 @@ const Index = () => {
           
           {/* Header */}
           <header className="text-center my-12 md:my-16 animate-fade-in-up">
-            <div className="flex items-center justify-center gap-4 mb-2">
-              <div className="p-3 bg-primary/20 rounded-2xl backdrop-blur-sm border border-primary/20">
-                <Palette className="w-8 h-8 md:w-10 md:h-10 text-primary" />
+            <div className="flex items-center justify-center gap-4 mb-6">
+              <div className="relative w-14 h-14 md:w-16 md:h-16 bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex items-center justify-center group transition-transform duration-300 hover:scale-105 hover:shadow-[0_20px_40px_rgb(94,19,246,0.15)]">
+                <svg width="0" height="0" className="absolute">
+                  <defs>
+                    <linearGradient id="logo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#5e13f6" />
+                      <stop offset="100%" stopColor="#3b82f6" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <Armchair 
+                  className="w-9 h-9 md:w-10 md:h-10 relative z-10" 
+                  style={{ stroke: "url(#logo-gradient)" }}
+                  strokeWidth={1.5}
+                />
+                <Sparkles 
+                  className="absolute top-2.5 right-2.5 w-2.5 h-2.5 md:w-3 md:h-3"
+                  style={{ stroke: "url(#logo-gradient)", fill: "rgba(94, 19, 246, 0.1)" }}
+                />
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground tracking-tight leading-tight">
                 RESTYLE AI

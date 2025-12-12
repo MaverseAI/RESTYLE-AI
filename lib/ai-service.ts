@@ -40,11 +40,10 @@ export const generateImageWithRetry = async (payload: any) => {
   };
 
   try {
-    // Priority 1: Gemini Nano Banana Pro (gemini-3-pro-image-preview)
-    // Note: The prompt explicitly asked for this model first.
-    console.log("Attempting generation with gemini-3-pro-image-preview");
+    // We use gemini-2.5-flash-image directly as it is the most stable model for general access
+    // and avoids "Permission denied" errors often associated with the Pro preview model.
     const response = await ai.models.generateContent({
-      model: 'gemini-3-pro-image-preview',
+      model: 'gemini-2.5-flash-image',
       contents: contents,
       config: config
     });
@@ -52,20 +51,8 @@ export const generateImageWithRetry = async (payload: any) => {
     return extractImageFromResponse(response);
 
   } catch (error: any) {
-    console.warn("gemini-3-pro-image-preview failed, falling back to gemini-2.5-flash-image", error);
-    
-    // Priority 2: Gemini Nano Banana (gemini-2.5-flash-image) - Fallback
-    try {
-      const response = await ai.models.generateContent({
-        model: 'gemini-2.5-flash-image',
-        contents: contents,
-        config: config
-      });
-      return extractImageFromResponse(response);
-    } catch (fallbackError: any) {
-      console.error("AI Generation Error (Fallback):", fallbackError);
-      throw new Error(fallbackError.message || "Failed to generate image.");
-    }
+    console.error("AI Generation Error:", error);
+    throw new Error(error.message || "Failed to generate image.");
   }
 };
 
