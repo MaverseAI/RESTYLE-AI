@@ -1,9 +1,27 @@
 import { GoogleGenAI } from "@google/genai";
 
 export const getModelInstruction = (roomName: string, stylePrompt: string) => {
-  return `Rewrite the interior design of this ${roomName} to match the following style: ${stylePrompt}. 
-  Keep the structural elements (walls, windows, doors) but change furniture, colors, and decor. 
-  Output a high-quality photorealistic image of the redesigned room.`;
+  return `You are an interior design AI. Your task is to RESTYLE this specific room photo into a ${roomName} without doing any construction work.
+
+CRITICAL STRUCTURAL RULES (ZERO TOLERANCE):
+1. **FROZEN ARCHITECTURE**: The room's shape, volume, and perspective must remain IDENTICAL.
+   - DO NOT move, remove, or resize walls, windows, doors, niches, beams, or columns.
+   - DO NOT expand the room. If the room is small, the design must fit inside the current boundaries.
+   - The wall on the right/left and the window positions are absolute anchors. Do not touch them.
+2. **PERSPECTIVE**: Maintain the exact camera angle, focal length, and field of view.
+
+TRANSFORMATION LOGIC:
+- **Scenario A: Changing Room Function** (e.g., Bedroom -> Kitchen):
+  - clear the existing furniture (beds, sofas, etc.).
+  - Install ${roomName} furniture/equipment ONLY where it fits within the existing floor space.
+  - DO NOT hallucinate extra space to fit more items.
+- **Scenario B: Same Room Function** (e.g., Bathroom -> Bathroom):
+  - KEEP FIXED FIXTURES (toilets, showers, sinks, hookups) in their EXACT current x,y,z coordinates. Only change their aesthetic style/material.
+
+DESIGN INSTRUCTION:
+- Apply this style: ${stylePrompt}.
+- Render photorealistic lighting and textures.
+- Respect the existing natural light sources (windows) without changing their shape.`;
 };
 
 // The App.tsx constructs a specific payload structure.
