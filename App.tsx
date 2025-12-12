@@ -544,7 +544,8 @@ const Index = () => {
                     </div>
                   )}
                   
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                  {/* Changed from grid-cols-1 md:grid-cols-3 to grid-cols-1 to make images larger (original size) */}
+                  <div className="grid grid-cols-1 gap-12 mt-12">
                     {generatedImages.map((img, index) => {
                       switch (img.status) {
                         case 'success':
@@ -577,10 +578,6 @@ const Index = () => {
                       }
                     })}
                   </div>
-
-                  <p className="text-center text-xs text-muted-foreground mt-8 font-medium">
-                    Powered by Google Gemini AI
-                  </p>
                 </motion.div>
               )}
 

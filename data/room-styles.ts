@@ -1,4 +1,4 @@
-import { Sofa, Bed, ChefHat, Monitor, Bath, Utensils, Sparkles, BrickWall, Snowflake, Flower2, Radio, Diamond } from "lucide-react";
+import { Sofa, Bed, ChefHat, Monitor, Bath, Utensils, Sparkles, BrickWall, Snowflake, Flower2, Radio, Diamond, Baby, DoorOpen, Trees, Leaf } from "lucide-react";
 
 export const roomTypes: Record<string, { name: string; icon: any; description: string; color: string; bgColor: string }> = {
   livingRoom: {
@@ -42,6 +42,20 @@ export const roomTypes: Record<string, { name: string; icon: any; description: s
     description: "Miejsce wspólnych chwil",
     color: "text-amber-500",
     bgColor: "bg-amber-100 dark:bg-amber-900/20",
+  },
+  kidsRoom: {
+    name: "Pokój dziecięcy",
+    icon: Baby,
+    description: "Królestwo zabawy",
+    color: "text-pink-500",
+    bgColor: "bg-pink-100 dark:bg-pink-900/20",
+  },
+  hallway: {
+    name: "Przedpokój",
+    icon: DoorOpen,
+    description: "Wizytówka domu",
+    color: "text-stone-500",
+    bgColor: "bg-stone-100 dark:bg-stone-900/20",
   },
 };
 
@@ -93,5 +107,21 @@ export const designStyles: Record<string, { name: string; icon: any; description
     base: "Luxury glamour interior design, high-end materials, marble, velvet, gold accents, crystal chandeliers, sophisticated lighting, elegant furniture, expensive look",
     color: "text-fuchsia-600",
     bgColor: "bg-fuchsia-100 dark:bg-fuchsia-900/20",
+  },
+  rustic: {
+    name: "Rustykalny",
+    icon: Trees,
+    description: "Ciepło i natura",
+    base: "Rustic interior design, natural materials, raw wood, stone, earth tones, cozy, countryside vibe, warm lighting, wooden beams, texture",
+    color: "text-emerald-600",
+    bgColor: "bg-emerald-100 dark:bg-emerald-900/20",
+  },
+  japandi: {
+    name: "Japandi",
+    icon: Leaf,
+    description: "Harmonia i spokój",
+    base: "Japandi interior design, fusion of Japanese and Scandinavian styles, minimalism, natural materials, light wood, muted colors, functional, balanced, peaceful, low furniture",
+    color: "text-stone-600",
+    bgColor: "bg-stone-200 dark:bg-stone-800",
   },
 };
