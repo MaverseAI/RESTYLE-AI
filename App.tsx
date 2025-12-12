@@ -392,7 +392,7 @@ const Index = () => {
                   Prześlij swoje zdjęcie
                 </h2>
                 <div 
-                  className="w-full border-2 border-dashed border-border rounded-2xl flex items-center justify-center cursor-pointer hover:border-primary/50 transition-all duration-300 bg-muted/30 backdrop-blur-sm overflow-hidden"
+                  className="w-full border-2 border-dashed border-border rounded-2xl flex items-center justify-center cursor-pointer hover:border-primary/50 transition-all duration-300 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm overflow-hidden"
                   style={uploadedImage ? cardStyle : { aspectRatio: '16/9' }}
                   onClick={() => !uploadedImage && fileInputRef.current?.click()}
                 >
@@ -419,7 +419,7 @@ const Index = () => {
                           setIsCameraOpen(true);
                         }} 
                         variant="outline" 
-                        className="mt-3"
+                        className="mt-3 bg-white/80 dark:bg-slate-800"
                       >
                         <Camera className="w-4 h-4 mr-2" />
                         Użyj kamery
@@ -429,10 +429,10 @@ const Index = () => {
                 </div>
                 {uploadedImage && !isUploading && (
                   <div className="flex flex-col sm:flex-row gap-3 mt-4 w-full">
-                    <Button onClick={() => fileInputRef.current?.click()} variant="outline" className="flex-1">
+                    <Button onClick={() => fileInputRef.current?.click()} variant="outline" className="flex-1 bg-white/80 dark:bg-slate-800">
                       Zmień plik
                     </Button>
-                    <Button onClick={() => setIsCameraOpen(true)} variant="outline" className="flex-1">
+                    <Button onClick={() => setIsCameraOpen(true)} variant="outline" className="flex-1 bg-white/80 dark:bg-slate-800">
                       <Camera className="w-4 h-4 mr-2" />
                       Użyj kamery
                     </Button>
@@ -493,7 +493,7 @@ const Index = () => {
                   onClick={handleGenerateClick} 
                   disabled={!canGenerate} 
                   size="lg" 
-                  className="text-base md:text-lg px-10 md:px-14 py-6 md:py-7"
+                  className="text-base md:text-lg px-10 md:px-14 py-6 md:py-7 shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all"
                 >
                   {isLoading ? (
                     <>

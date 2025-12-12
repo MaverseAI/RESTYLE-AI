@@ -25,24 +25,26 @@ export const TemplateCard: React.FC<TemplateCardProps> = ({
 }) => {
   return (
     <motion.div
-      whileHover={{ scale: 1.02 }}
+      whileHover={{ scale: 1.03, y: -2 }}
       whileTap={{ scale: 0.98 }}
       onClick={() => onSelect(id)}
-      className={`relative cursor-pointer rounded-xl p-4 border-2 transition-all duration-300 flex flex-col items-center text-center group ${
-        isSelected
-          ? 'border-primary bg-primary/5 shadow-[0_0_20px_rgba(139,92,246,0.2)]'
-          : 'border-border bg-card/50 hover:border-primary/30 hover:bg-card/80'
-      }`}
+      className={`relative cursor-pointer rounded-2xl p-5 transition-all duration-300 flex flex-col items-center text-center group h-full
+        ${isSelected
+          ? 'border-2 border-primary bg-primary/5 shadow-lg shadow-primary/10'
+          : 'border border-transparent bg-white shadow-soft hover:shadow-xl dark:bg-slate-800 dark:border-slate-700 dark:hover:bg-slate-700 dark:hover:border-slate-600'
+        }`}
     >
-      <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-3 transition-colors duration-300 ${
-        isSelected ? 'bg-primary text-white shadow-lg shadow-primary/30' : `${bgColor} ${color} group-hover:scale-110 transform transition-transform`
+      <div className={`w-14 h-14 rounded-full flex items-center justify-center mb-4 transition-all duration-300 ${
+        isSelected 
+          ? 'bg-primary text-white shadow-lg shadow-primary/30 scale-110' 
+          : `${bgColor} ${color} group-hover:scale-110`
       }`}>
-        <Icon className="w-6 h-6" />
+        <Icon className="w-7 h-7" />
       </div>
-      <h3 className={`font-bold mb-1 ${isSelected ? 'text-primary' : 'text-foreground'}`}>
+      <h3 className={`font-bold text-base mb-2 tracking-tight ${isSelected ? 'text-primary' : 'text-foreground'}`}>
         {name}
       </h3>
-      <p className="text-xs text-muted-foreground leading-relaxed">
+      <p className="text-xs text-muted-foreground leading-relaxed font-medium">
         {description}
       </p>
     </motion.div>
