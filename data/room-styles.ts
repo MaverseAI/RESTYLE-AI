@@ -1,0 +1,97 @@
+import { Sofa, Bed, ChefHat, Monitor, Bath, Utensils, Sparkles, BrickWall, Snowflake, Flower2, Radio, Diamond } from "lucide-react";
+
+export const roomTypes: Record<string, { name: string; icon: any; description: string; color: string; bgColor: string }> = {
+  livingRoom: {
+    name: "Salon",
+    icon: Sofa,
+    description: "Centrum domowego relaksu",
+    color: "text-orange-500",
+    bgColor: "bg-orange-100 dark:bg-orange-900/20",
+  },
+  bedroom: {
+    name: "Sypialnia",
+    icon: Bed,
+    description: "Twoja oaza spokoju",
+    color: "text-indigo-500",
+    bgColor: "bg-indigo-100 dark:bg-indigo-900/20",
+  },
+  kitchen: {
+    name: "Kuchnia",
+    icon: ChefHat,
+    description: "Serce Twojego domu",
+    color: "text-red-500",
+    bgColor: "bg-red-100 dark:bg-red-900/20",
+  },
+  office: {
+    name: "Gabinet",
+    icon: Monitor,
+    description: "Przestrzeń kreatywności",
+    color: "text-blue-500",
+    bgColor: "bg-blue-100 dark:bg-blue-900/20",
+  },
+  bathroom: {
+    name: "Łazienka",
+    icon: Bath,
+    description: "Domowe SPA",
+    color: "text-cyan-500",
+    bgColor: "bg-cyan-100 dark:bg-cyan-900/20",
+  },
+  dining: {
+    name: "Jadalnia",
+    icon: Utensils, 
+    description: "Miejsce wspólnych chwil",
+    color: "text-amber-500",
+    bgColor: "bg-amber-100 dark:bg-amber-900/20",
+  },
+};
+
+export const designStyles: Record<string, { name: string; icon: any; description: string; base: string; color: string; bgColor: string }> = {
+  modern: {
+    name: "Nowoczesny",
+    icon: Sparkles,
+    description: "Minimalizm i funkcjonalność",
+    base: "Modern interior design, clean lines, minimalist furniture, neutral color palette with bold accents, clutter-free, functional, high tech, sleek",
+    color: "text-sky-500",
+    bgColor: "bg-sky-100 dark:bg-sky-900/20",
+  },
+  industrial: {
+    name: "Industrialny",
+    icon: BrickWall,
+    description: "Loftowy klimat i surowość",
+    base: "Industrial interior design, exposed brick walls, metal pipes, concrete floors, raw wood furniture, vintage lighting, loft style, urban",
+    color: "text-slate-600 dark:text-slate-400",
+    bgColor: "bg-slate-200 dark:bg-slate-800",
+  },
+  scandinavian: {
+    name: "Skandynawski",
+    icon: Snowflake,
+    description: "Jasność, drewno i hygge",
+    base: "Scandinavian interior design, hygge, light wood, white walls, cozy textiles, natural light, functional, simple, airy, warm atmosphere",
+    color: "text-teal-600",
+    bgColor: "bg-teal-100 dark:bg-teal-900/20",
+  },
+  bohemian: {
+    name: "Boho",
+    icon: Flower2,
+    description: "Artystyczny nieład i kolory",
+    base: "Bohemian interior design, eclectic patterns, macrame, many plants, layered rugs, colorful textiles, vintage furniture, relaxed atmosphere, artistic",
+    color: "text-green-600",
+    bgColor: "bg-green-100 dark:bg-green-900/20",
+  },
+  midcentury: {
+    name: "Mid-Century",
+    icon: Radio,
+    description: "Klasyka lat 50. i 60.",
+    base: "Mid-century modern interior design, organic curves, teak wood, tapered legs, geometric patterns, olive green and mustard yellow tones, retro vibe",
+    color: "text-yellow-600",
+    bgColor: "bg-yellow-100 dark:bg-yellow-900/20",
+  },
+  luxury: {
+    name: "Glamour",
+    icon: Diamond,
+    description: "Elegancja i blask",
+    base: "Luxury glamour interior design, high-end materials, marble, velvet, gold accents, crystal chandeliers, sophisticated lighting, elegant furniture, expensive look",
+    color: "text-fuchsia-600",
+    bgColor: "bg-fuchsia-100 dark:bg-fuchsia-900/20",
+  },
+};

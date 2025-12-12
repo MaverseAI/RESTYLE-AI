@@ -1,0 +1,7 @@
+{
+  "name": "RESTYLE AI",
+  "description": "Transform your interior spaces using AI. Upload a photo, choose a style, and visualize the change.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
