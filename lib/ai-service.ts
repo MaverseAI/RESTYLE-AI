@@ -1,7 +1,26 @@
 import { GoogleGenAI } from "@google/genai";
 
 export const getModelInstruction = (roomName: string, stylePrompt: string) => {
-  return `You are an interior design AI. Your task is to RESTYLE this specific room photo into a ${roomName} without doing any construction work.
+  // Translate Polish UI names to specific English architectural terms to ensure residential context
+  // and avoid ambiguity (e.g., "Salon" -> "Living Room" vs "Hair Salon")
+  const roomTranslation: Record<string, string> = {
+    "Salon": "Residential Living Room",
+    "Sypialnia": "Bedroom",
+    "Kuchnia": "Kitchen",
+    "Gabinet": "Home Office",
+    "Łazienka": "Bathroom",
+    "Jadalnia": "Dining Room",
+    "Pokój dziecięcy": "Children's Room",
+    "Przedpokój": "Hallway / Entryway"
+  };
+
+  const targetRoom = roomTranslation[roomName] || roomName;
+
+  return `You are an interior design AI. Your task is to RESTYLE this specific room photo into a ${targetRoom} without doing any construction work.
+
+CRITICAL CONTEXT:
+- The space is a RESIDENTIAL HOME INTERIOR. 
+- DO NOT generate commercial spaces, public lobbies, or hair/beauty salons.
 
 CRITICAL STRUCTURAL RULES (ZERO TOLERANCE):
 1. **FROZEN ARCHITECTURE**: The room's shape, volume, and perspective must remain IDENTICAL.
@@ -13,7 +32,7 @@ CRITICAL STRUCTURAL RULES (ZERO TOLERANCE):
 TRANSFORMATION LOGIC:
 - **Scenario A: Changing Room Function** (e.g., Bedroom -> Kitchen):
   - clear the existing furniture (beds, sofas, etc.).
-  - Install ${roomName} furniture/equipment ONLY where it fits within the existing floor space.
+  - Install ${targetRoom} furniture/equipment ONLY where it fits within the existing floor space.
   - DO NOT hallucinate extra space to fit more items.
 - **Scenario B: Same Room Function** (e.g., Bathroom -> Bathroom):
   - KEEP FIXED FIXTURES (toilets, showers, sinks, hookups) in their EXACT current x,y,z coordinates. Only change their aesthetic style/material.
